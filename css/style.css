@@ -1,0 +1,19 @@
+#menu{
+	float:left;
+}
+
+#emailInfo{
+	margin-left: 150px;
+}
+
+.body{
+	display: none;
+}
+
+.body.show{
+	display: block;
+}
+
+.emailBox{
+	border-style: solid;
+}

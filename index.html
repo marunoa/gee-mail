@@ -1,18 +1,125 @@
 <html>
 	<head>
+		
+		<title>GeeMail</title>
+
 		<script src="js/mail-generator.js"></script>
+		
 		<link href="css/style.css" rel="stylesheet" media="screen">
+    
     <script>
+      
       window.onload = function(){
         // ALL OF YOUR JAVASCRIPT CODE SHOULD GO HERE. 
         // We have to use window.onload so your JavaScript doesn't execute until the page has loaded and all HTML has been downloaded to your browser
-        
-      };
+
+  function generateEmail (messages) {
+  	for (var i = 0; i < messages.length; i++){
+  		var sender = messages[i].sender;
+  		var subject = messages[i].subject;
+  		var date = messages[i].date;
+  		var body = messages[i].body;
+  	
+
+	var emailContainer = document.createElement('div');
+	emailContainer.className = 'emailBox';
+	document.getElementById('emailInfo').appendChild(emailContainer);
+
+
+  	var senderElement = document.createElement('div');
+  	senderElement.className = "sender";
+  	senderElement.innerHTML = sender;
+  	emailContainer.appendChild(senderElement);
+
+  	var subjectElement = document.createElement('div');
+  	subjectElement.className = 'subject';
+  	subjectElement.innerHTML = subject;
+  	emailContainer.appendChild(subjectElement);
+
+  	var dateElement = document.createElement('div');
+  	dateElement.className = 'date';
+  	dateElement.innerHTML = date;
+  	emailContainer.appendChild(dateElement);
+
+  	var bodyElement = document.createElement('div');
+  	bodyElement.className = 'body';
+  	bodyElement.innerHTML = body;
+  	emailContainer.appendChild(bodyElement);
+
+	}
+}
+
+generateEmail(geemails);
+
+
+  var emailMessage = document.getElementsByClassName('emailBox');
+		for (var i = 0; i < emailMessage.length; i++){
+			emailMessage[i].addEventListener('click' , showMessage);
+	}
+
+
+  function showMessage(event){
+		var showBody = this.querySelectorAll('.body')[0];
+			
+				if(showBody.classList.contains('show')=== false){
+				return	showBody.classList.add('show');
+				} else {
+				return showBody.classList.remove('show');
+		}
+	}
+  
+	
+
+
+
+
+
+console.log(getNewMessage());
+console.log(getNewMessage().sender);
+
+	var count = document.createElement('div');
+	var totalCount = document.getElementById('count');
+	var allMails = geemails.length;
+	var total = document.createTextNode(allMails);
+	count.appendChild(total);
+	count.innerHTML = allMails + 'Messages';
+
+
+
+
+  	setInterval (function () {
+  	var newEmail = getNewMessage();
+  	generateEmail([newEmail]);
+  	
+  	allMails += 1;
+  	totalCount++
+  	var badge = document.getElementById('inboxCount');
+  	badge.innerHTML = allMails;
+  }, 5000);
+
+  
+
+	
+};
+
+
+
+
+
     </script>
 	</head>
 	<body>
-		<div class="container" id="main">
-			Build Me!
-		</div>
+		<h1>Geemail</h1>
+			<div class="container" id="main">
+				<div id="menu">
+					<li><button type="button" id="compose">New Message</button></li>
+					<li class="list-group-item"> Inbox <span id="inboxCount"></span></li>
+					<li class="list-group-item">Sent Mail</li>
+					<li class="list-group-item"> Spam <span class="badge"></span></li>
+					<li class="list-group-item">Trash</li>
+				</div>
+					<div id="emailInfo">
+					</div>
+			</div>
 	</body>
 </html>
