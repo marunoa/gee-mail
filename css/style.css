@@ -8,6 +8,7 @@
 
 .body{
 	display: none;
+	background-image: url('Background-Images4.gif');
 }
 
 .body.show{

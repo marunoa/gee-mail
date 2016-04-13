@@ -26,25 +26,25 @@
 	document.getElementById('emailInfo').appendChild(emailContainer);
 
 
-  	var senderElement = document.createElement('div');
-  	senderElement.className = "sender";
-  	senderElement.innerHTML = sender;
-  	emailContainer.appendChild(senderElement);
+  	var senderInfo = document.createElement('div');
+  	senderInfo.className = "sender";
+  	senderInfo.innerHTML = sender;
+  	emailContainer.appendChild(senderInfo);
 
-  	var subjectElement = document.createElement('div');
-  	subjectElement.className = 'subject';
-  	subjectElement.innerHTML = subject;
-  	emailContainer.appendChild(subjectElement);
+  	var subjectInfo = document.createElement('div');
+  	subjectInfo.className = 'subject';
+  	subjectInfo.innerHTML = subject;
+  	emailContainer.appendChild(subjectInfo);
 
-  	var dateElement = document.createElement('div');
-  	dateElement.className = 'date';
-  	dateElement.innerHTML = date;
-  	emailContainer.appendChild(dateElement);
+  	var dateInfo = document.createElement('div');
+  	dateInfo.className = 'date';
+  	dateInfo.innerHTML = date;
+  	emailContainer.appendChild(dateInfo);
 
-  	var bodyElement = document.createElement('div');
-  	bodyElement.className = 'body';
-  	bodyElement.innerHTML = body;
-  	emailContainer.appendChild(bodyElement);
+  	var bodyInfo = document.createElement('div');
+  	bodyInfo.className = 'body';
+  	bodyInfo.innerHTML = body;
+  	emailContainer.appendChild(bodyInfo);
 
 	}
 }
@@ -90,6 +90,10 @@ console.log(getNewMessage().sender);
   	setInterval (function () {
   	var newEmail = getNewMessage();
   	generateEmail([newEmail]);
+  	var emailMessage = document.getElementsByClassName('emailBox');
+		for (var i = 0; i < emailMessage.length; i++){
+			emailMessage[i].addEventListener('click' , showMessage)
+			};
   	
   	allMails += 1;
   	totalCount++
