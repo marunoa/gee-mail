@@ -1,5 +1,5 @@
 #menu{
-	float:left;
+	float: left;
 }
 
 #emailInfo{
@@ -8,13 +8,35 @@
 
 .body{
 	display: none;
-	background-image: url('Background-Images4.gif');
 }
 
 .body.show{
 	display: block;
+	padding: 10px;
+	margin: 5px;
+	font-size: 90%;
 }
 
 .emailBox{
 	border-style: solid;
+	border-color: lightblue;
+}
+
+h1{
+	background-color: lightblue;
+}
+
+.date{
+	font-size: 80%;
+	float: right;
+	margin-top: -30px;
+}
+
+.sender{
+	font-weight: bold;
+	font-size: 120%;
+}
+
+.subject{
+	font-size: 90%;
 }
